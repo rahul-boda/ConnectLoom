@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=scr, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./styles.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+       display: flex;
+       justify-content: center;
+       align-items: center;
+            height: 100vh;
+            background-color: blackz;
+        }
+        img:hover{scale:0.97;
+            
+        }
+
+        #loginForm {
+            background-color: #fbfbfb;
+        
+            padding: 20px;
+            text-align: center;
+            width: 100%;
+            max-width: 500px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            border-radius: 10px;
+        }
+
+        h2 {
+            font-size: 30px;
+            margin-bottom: 20px;
+            background: linear-gradient(to left, pink, 
+                    blue,red,green); 
+            -webkit-text-fill-color: transparent; 
+            -webkit-background-clip: text; 
+        }
+        h1 {
+            font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            ;
+        }
+
+        label {
+            margin-top: 10px;
+            font-size: 16px;
+        }
+
+        input {
+            width: 100%;
+            max-width: 250px;
+            height: 30px;
+            padding: 5px;
+            margin-bottom: 10px;
+            margin-top: 5px;
+        }
+
+        .button1 {
+            background-color:blue;
+            color: white;
+            font-size: 1em;
+            width: 100%;
+            max-width: 250px;
+            height: 40px;
+            border: none;
+            cursor: pointer;
+            border-radius: 30px;
+        }
+        a {
+           
+            /* color:blue; */
+            font-size: 1em;
+            width: 100%;
+            max-width: 250px;
+            height: 40px;
+           
+            cursor: pointer;
+            border-radius: 30px;
+            text-decoration: none;
+            padding: 0px;
+        }
+
+        .button1:hover {
+            background-color:rgb(228, 53, 85);
+            scale:0.98;
+        }
+        a:hover {
+            
+            color: rgb(228, 53, 85);
+            scale:0.18;
+        }
+
+        @media (max-width: 768px) {
+            #loginForm {
+                max-width: 400px;
+            }
+            h2{
+                font-size: 27px;
+                background: linear-gradient(to left, pink, 
+                    blue,red,green); 
+            -webkit-text-fill-color: transparent; 
+            -webkit-background-clip: text; 
+            }
+
+            .button1 {
+                width: 100%;
+            }
+            a {
+                width: 100%;
+            }
+        }
+
+        @media (max-width: 480px) {
+            #loginForm {
+                height:100vh;
+                max-width: 100%;
+                padding: 15px;
+                
+            }
+
+             h2 {
+                font-size: 25px;
+                background: linear-gradient(to left, pink, 
+                    blue,red,green); 
+            -webkit-text-fill-color: transparent; 
+            -webkit-background-clip: text; 
+           
+            }
+            /* h1 {
+                font-size: 30px;
+            }  */
+            img{
+                height: 80px;
+            }
+
+            input {
+                width: 100%;
+                max-width: 200px;
+            }
+
+            .button1 {
+                width: 100%;
+                max-width: 200px;
+            }
+            a {
+                width: 100%;
+                max-width: 200px;
+            }
+        }
+    </style>
+</head>
+<body>
+    
+    <form id="loginForm">
+        
+        <select name="lang" id="lan" style="border: 2px solid white;">
+            <option value="Select lang">English (india)</option>
+            <option value="german">German (Europe)</option>
+            <option value="spanish">Spanish (America)</option>
+            <option value="japanese">Japanese (East Asia)</option>
+            <option value="others">Others</option>
+        </select><br> <br><br><br><br><br>
+
+
+
+     <img src="./logob.png" alt="" height="100px" style="border-radius: 15px; " >
+        <h2 style="font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif ">ConnectLoom</h2>
+
+        <label for="loginUsername"> </label><br>
+        <input type="text" id="loginUsername" placeholder="Enter username" required style="border-radius: 5px;">
+
+        <label for="loginPassword"></label><br>
+        <input type="password" id="loginPassword" placeholder="Enter password" required style="border-radius: 5px;"><br>
+
+        <button type="submit" class="button1">Login</button>
+        <br><br>
+        <a href="./home.html">Guest Login!</a><br><br><br><br><br><br><br><br>
+<a href="./register.html">Create new account</a>
+
+
+
+    </form>
+    <script src="./main.js">
+             const loginForm = document.getElementById('loginForm');
+        const loginUsername = document.getElementById('loginUsername');
+        const loginPassword = document.getElementById('loginPassword');
+
+        loginForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+
+            const storedUsername = localStorage.getItem('username');
+            const storedPassword = localStorage.getItem('password');
+
+            if (loginUsername.value === storedUsername && loginPassword.value === storedPassword) {
+                alert('Login successful!');
+                window.location.href = 'home.html';
+            } else {
+                alert('Invalid username or password.');
+            }
+        });
+    </script>
+</body>
+</html>
